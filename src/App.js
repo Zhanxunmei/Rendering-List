@@ -8,18 +8,19 @@ function App() {
   const [searchBox, setSearchBox] = useState('');
 
   const peepsList = PeepsData.filter((peeps) => {
-    if (searchBox == "") {
-      return peeps;
+    if (searchBox === "") {
+      return true;
     } else if (peeps.firstName.toLowerCase().includes(searchBox.toLowerCase())) {
-      return peeps;
+      return true;
     } else if (peeps.lastName.toLowerCase().includes(searchBox.toLowerCase())) {
-      return peeps;
+      return true;
     } else if (peeps.title.toLowerCase().includes(searchBox.toLowerCase())) {
-      return peeps;
+      return true;
     }
+    return false;
   }).map((datum) => (
       <div key={datum.id} className="profile-contents">
-        <img src={datum.picture} Alt="Peeps pix" />
+        < img src={datum.picture} alt="Peeps pix" />
         <div>
           <div>{datum.id}</div>
           <div>
